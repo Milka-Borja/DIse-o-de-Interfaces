@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    
+    <link rel="stylesheet" href="estilo.css">
+    
+</head>
+<body>
+
+    <div class="form-container">
+    
+        <h1>Formulario de Registro</h1>
+        <h2><span>Realizado por: </span><i class="nombre-autor">Milka Borja</i></h2>
+
+        <form action="#" method="post" enctype="multipart/form-data">
+            
+            <label>Nombre completo:</label>
+            <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+
+            <label>Género:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="genero" value="M"> Masculino</label>
+                <label><input type="radio" name="genero" value="F"> Femenino</label>
+            </div>
+            
+            <label>Intereses:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="intereses" value="tecnologia"> Tecnología</label>
+                <label><input type="checkbox" name="intereses" value="deporte"> Deporte</label>
+                <label><input type="checkbox" name="intereses" value="arte"> Arte</label>
+            </div>
+
+            <label>Subir archivo:</label>
+            <input type="file" name="foto">
+
+            <input type="hidden" name="id" value="001">
+
+            <div class="buttons">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </div>
+
+        </form>
+        
+    </div> </body>
+</html>
