@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Taller JavaScript Completo</title>
+</head>
+<body>
+
+<h1>Taller JavaScript</h1>
+
+<h2>Ejercicio 1: Operaciones básicas</h2>
+<button onclick="ej1()">Ejecutar</button>
+
+<h2>Ejercicio 2: Áreas de figuras</h2>
+<button onclick="ej2()">Ejecutar</button>
+
+<h2>Ejercicio 3: Promedio y aprobación</h2>
+<button onclick="ej3()">Ejecutar</button>
+
+<h2>Ejercicio 4: Aprobación o reprobación (promedio menor a 7)</h2>
+<button onclick="ej4()">Ejecutar</button>
+
+<h2>Ejercicio 5: Clasificación según promedio</h2>
+<button onclick="ej5()">Ejecutar</button>
+
+<h2>Ejercicio 6: Área y perímetro + hipotenusa si es triángulo</h2>
+<button onclick="ej6()">Ejecutar</button>
+
+<h2>Ejercicio 7: Tabla de multiplicar</h2>
+<button onclick="ej7()">Ejecutar</button>
+
+<h2>Ejercicio 8: Mostrar un arreglo</h2>
+<button onclick="ej8()">Ejecutar</button>
+
+<h2>Ejercicio 9: Función verificarPar</h2>
+<button onclick="verificarPar()">Ejecutar</button>
+
+<h2>Ejercicio 10: Arreglo de frutas</h2>
+<button onclick="ej10()">Ejecutar</button>
+
+<h2>Ejercicio 11: Suma de arreglo de números</h2>
+<button onclick="ej11()">Ejecutar</button>
+
+<h2>Ejercicio 12: Buscar estudiante en lista</h2>
+<button onclick="ej12()">Ejecutar</button>
+
+<h2>Ejercicio 13: Número mayor en un arreglo</h2>
+<button onclick="ej13()">Ejecutar</button>
+
+<h2>Ejercicio 14: Arreglo inverso</h2>
+<button onclick="ej14()">Ejecutar</button>
+
+
+<script>
+
+function ej1() {
+    let n1 = Number(prompt("Ingresa el primer número"));
+    let n2 = Number(prompt("Ingresa el segundo número"));
+    alert(
+        "Suma: " + (n1 + n2) +
+        "\nResta: " + (n1 - n2) +
+        "\nMultiplicación: " + (n1 * n2) +
+        "\nDivisión: " + (n1 / n2) +
+        "\nMódulo: " + (n1 % n2) +
+        "\nPotencia: " + (n1 ** n2)
+    );
+}
+
+function ej2() {
+    let lado = Number(prompt("Lado del cuadrado"));
+    let a1 = lado * lado;
+
+    let baseR = Number(prompt("Base del rectángulo"));
+    let altR = Number(prompt("Altura del rectángulo"));
+    let a2 = baseR * altR;
+
+    let baseT = Number(prompt("Base del triángulo"));
+    let altT = Number(prompt("Altura del triángulo"));
+    let a3 = (baseT * altT) / 2;
+
+    let radio = Number(prompt("Radio del círculo"));
+    let a4 = Math.PI * radio * radio;
+
+    alert("Área cuadrado: " + a1 +
+          "\nÁrea rectángulo: " + a2 +
+          "\nÁrea triángulo: " + a3 +
+          "\nÁrea círculo: " + a4);
+}
+
+let promedioGlobal = 0;
+
+function ej3() {
+    let ing = Number(prompt("Nota de inglés"));
+    let mat = Number(prompt("Nota de matemática"));
+    let len = Number(prompt("Nota de lengua"));
+    let prom = (ing + mat + len) / 3;
+    promedioGlobal = prom;
+
+    if (prom >= 7) {
+        alert("Promedio: " + prom + "\nAprueba");
+    } else {
+        alert("Promedio: " + prom + "\nReprueba");
+    }
+}
+
+function ej4() {
+    if (promedioGlobal === 0) {
+        alert("Ejecuta el ejercicio 3 primero");
+        return;
+    }
+    if (promedioGlobal < 7) {
+        alert("Promedio: " + promedioGlobal + "\nReprueba");
+    } else {
+        alert("Promedio: " + promedioGlobal + "\nAprueba");
+    }
+}
+
+function ej5() {
+    if (promedioGlobal === 0) {
+        alert("Ejecuta el ejercicio 3 primero");
+        return;
+    }
+
+    let p = promedioGlobal;
+
+    if (p === 10) {
+        alert("10 = Satisfactorio (beca) y aprueba");
+    } else if (p >= 8 && p <= 9) {
+        alert("Muy buena y aprueba");
+    } else if (p >= 7 && p < 8) {
+        alert("Buena y aprueba");
+    } else {
+        alert("Regular y reprueba");
+    }
+}
+
+function ej6() {
+    let f = prompt("Elige figura: cuadrado, rectángulo, triángulo o círculo");
+
+    if (f === "cuadrado") {
+        let l = Number(prompt("Lado"));
+        alert("Área: " + (l*l) + "\nPerímetro: " + (4*l));
+    }
+
+    else if (f === "rectángulo") {
+        let b = Number(prompt("Base"));
+        let h = Number(prompt("Altura"));
+        alert("Área: " + (b*h) + "\nPerímetro: " + (2*(b+h)));
+    }
+
+    else if (f === "triángulo") {
+        let b = Number(prompt("Base"));
+        let h = Number(prompt("Altura"));
+        let hip = Math.sqrt(b*b + h*h);
+        alert("Área: " + (b*h/2) + "\nHipotenusa: " + hip);
+    }
+
+    else if (f === "círculo") {
+        let r = Number(prompt("Radio"));
+        alert("Área: " + (Math.PI*r*r) + "\nPerímetro: " + (2*Math.PI*r));
+    }
+
+    else {
+        alert("Figura no válida");
+    }
+}
+
+function ej7() {
+    let n = Number(prompt("Ingresa un número"));
+    let res = "";
+    for (let i = 1; i <= 10; i++) {
+        res += n + " x " + i + " = " + (n*i) + "\n";
+    }
+    alert(res);
+}
+
+function ej8() {
+    let arr = [10, 20, 30, 40, 50];
+    alert("Arreglo: " + arr.join(", "));
+}
+
+function verificarPar() {
+    let n = Number(prompt("Ingresa un número"));
+    if (n % 2 === 0) {
+        alert("Par");
+    } else {
+        alert("Impar");
+    }
+}
+
+function ej10() {
+    let frutas = ["Manzana", "Banana", "Pera", "Uva", "Sandía"];
+    alert("Frutas: " + frutas.join(", "));
+}
+
+function ej11() {
+    let nums = [5, 10, 15, 20, 25];
+    let suma = 0;
+    for (let n of nums) {
+        suma += n;
+    }
+    alert("Suma total: " + suma);
+}
+
+function ej12() {
+    let estudiantes = ["Ana", "Luis", "Carlos", "María", "Sofía"];
+    let nombre = prompt("Ingresa un nombre");
+    if (estudiantes.includes(nombre)) {
+        alert("Está en la lista");
+    } else {
+        alert("No está en la lista");
+    }
+}
+
+function ej13() {
+    let nums = [8, 22, 5, 70, 13];
+    let mayor = Math.max(...nums);
+    alert("Mayor: " + mayor);
+}
+
+function ej14() {
+    let lista = [1, 2, 3, 4, 5];
+    alert("Arreglo inverso: " + lista.reverse().join(", "));
+}
+
+</script>
+
+</body>
+</html>
